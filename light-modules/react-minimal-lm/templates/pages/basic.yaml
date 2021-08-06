@@ -1,5 +1,5 @@
 title: 'React: Basic'
-templateScript: /react-minimal-lm/webresources/build/index.html
+url: https://610d2948219f5f0008fbd544--try-cloud-page-headless-demo.netlify.app/
 dialog: spa-lm:pages/basic
 
 renderType: spa
@@ -26,7 +26,7 @@ areas:
         id: spa-lm:components/expander
       List:
         id: spa-lm:components/list
-        
+
   extras:
     title: Extras Area
     availableComponents:
