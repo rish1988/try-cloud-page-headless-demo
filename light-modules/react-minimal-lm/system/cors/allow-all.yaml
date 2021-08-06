@@ -1,0 +1,12 @@
+uris:
+  rest:
+    patternString: /.rest/*
+allowedOrigins:
+  - https://610d2948219f5f0008fbd544--try-cloud-page-headless-demo.netlify.app/
+allowedMethods:
+  - GET
+  - OPTIONS
+  - POST
+allowedHeaders:
+  - '*'
+
