@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import config from '../magnolia.config';
 import { getAPIBase, getLanguages, removeCurrentLanguage, getCurrentLanguage, getVersion } from './AppHelpers';
 
@@ -22,9 +22,9 @@ class PageLoader extends React.Component {
     return path;
   };
 
-  loadPage = async () => {
+  loadPage = async (force) => {
     // Bail out if already loaded content.
-    if (this.state.pathname === window.location.pathname) return;
+    if (!force && this.state.pathname === window.location.pathname) return;
 
     const apiBase = getAPIBase();
 
@@ -35,6 +35,7 @@ class PageLoader extends React.Component {
     let fullContentPath = `${apiBase}${version ? process.env.REACT_APP_MGNL_API_PAGES_PREVIEW : process.env.REACT_APP_MGNL_API_PAGES}${pagePath}${version ? `?version=${version}` : ''}`;
 
     const pageResponse = await fetch(fullContentPath);
+
     const pageJson = await pageResponse.json();
     console.log('page content: ', pageJson);
 
@@ -64,7 +65,24 @@ class PageLoader extends React.Component {
   }
 
   componentDidMount() {
-    this.loadPage();
+
+    const handler = event => {
+      try {
+        if (typeof event.data !== "string") {
+          return;
+        }
+        const message = JSON.parse(event.data);
+        if (message.action === 'refresh') {
+          this.loadPage(true);
+        }
+      } catch (e) {
+        console.error("Failed to parse " + event.data)
+      }
+    };
+
+    window.addEventListener('message', handler);
+
+    this.loadPage(false);
   }
 
   componentDidUpdate() {
