@@ -12,10 +12,11 @@
   },
   "scripts": {
     "get-env": "./get-env.js",
+    "get-env-netlify": "./get-env.js",
     "start": "NODE_ENV=production && npm run get-env && env-cmd -f .config-env env-cmd -f .env react-scripts start",
     "start-old": "env-cmd -f .env.local react-scripts start",
     "build:mgnl": "npm run clean && env-cmd -f .env.mgnl react-scripts build",
-    "build:netlify": "npm run clean && npm run get-env && CI=false && env-cmd -f .config-env env-cmd -f .env react-scripts build",
+    "build:netlify": "npm run clean && npm run get-env-netlify && CI=false && env-cmd -f .config-env env-cmd -f .env react-scripts build",
     "clean": "rimraf build && rimraf ./light-modules/react-minimal-lm/webresources/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
