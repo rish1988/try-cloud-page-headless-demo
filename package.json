@@ -10,7 +10,7 @@
     "react-scripts": "^3.4.0"
   },
   "scripts": {
-    "start": "NODE_ENV=production && react-scripts start",
+    "start": "NODE_ENV=production && env-cmd -f .env react-scripts start",
     "start-old": "env-cmd -f .env.local react-scripts start",
     "build:mgnl": "npm run clean && env-cmd -f .env.mgnl react-scripts build",
     "build:netlify": "npm run clean && env-cmd -f .env.netlify react-scripts build",

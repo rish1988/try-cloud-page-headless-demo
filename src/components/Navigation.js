@@ -23,18 +23,8 @@ function Navigation() {
     async function fetchNav() {
       const apiBase = getAPIBase();
 
-      let newVar = apiBase + process.env.REACT_APP_MGNL_API_NAV;
-      let reactappmgnlappbase = process.env.REACT_APP_MGNL_APP_BASE;
+      const url = apiBase + process.env.REACT_APP_MGNL_API_NAV + process.env.REACT_APP_MGNL_APP_BASE;
 
-
-      const url = newVar + reactappmgnlappbase;
-
-      console.log("env: " + process.env.CONFIG_ENV);
-      console.log("rest base: " + process.env.REST_BASE);
-      console.log("nav: " + process.env.REACT_APP_MGNL_API_NAV);
-
-      console.log(newVar);
-      console.log(reactappmgnlappbase);
       console.log('NAV URL:' + url);
       const response = await fetch(url);
       const data = await response.json();
