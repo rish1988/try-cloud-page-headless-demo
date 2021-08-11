@@ -22,7 +22,13 @@ function Navigation() {
   React.useEffect(() => {
     async function fetchNav() {
       const apiBase = getAPIBase();
-      const url = apiBase + process.env.REACT_APP_MGNL_API_NAV + process.env.REACT_APP_MGNL_APP_BASE;
+
+      let newVar = apiBase + process.env.REACT_APP_MGNL_API_NAV;
+      let reactappmgnlappbase = process.env.REACT_APP_MGNL_APP_BASE;
+
+      const url = newVar + reactappmgnlappbase;
+      console.log(newVar);
+      console.log(reactappmgnlappbase);
       console.log('NAV URL:' + url);
       const response = await fetch(url);
       const data = await response.json();
