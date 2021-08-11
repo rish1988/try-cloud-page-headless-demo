@@ -32,7 +32,7 @@ function Navigation() {
       console.log("env: " + process.env.CONFIG_ENV);
       console.log("rest base: " + process.env.REST_BASE);
       console.log("nav: " + process.env.REACT_APP_MGNL_API_NAV);
-      
+
       console.log(newVar);
       console.log(reactappmgnlappbase);
       console.log('NAV URL:' + url);
