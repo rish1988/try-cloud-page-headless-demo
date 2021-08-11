@@ -14,4 +14,9 @@ model:
       label: Description
       i18n: true
       required: false
+    content:
+      type: richText
+      label: Description
+      i18n: true
+      required: false
 
