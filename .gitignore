@@ -1,6 +1,8 @@
 apache-tomcat
 downloads
 
+.config-env
+
 /**/webresources/build/
 /**/angular-minimal-lm/webresources/
 /**/vue-minimal-lm/webresources/
