@@ -2,7 +2,7 @@ uris:
   rest:
     patternString: /.rest/*
 allowedOrigins:
-  - *
+  - '*'
 allowedMethods:
   - GET
   - OPTIONS
