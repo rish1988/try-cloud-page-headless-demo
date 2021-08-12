@@ -2,7 +2,7 @@ uris:
   rest:
     patternString: /.rest/*
 allowedOrigins:
-  - https://master--try-cloud-page-headless-demo.netlify.app/
+  - https://master--try-cloud-page-headless-demo.netlify.app
 allowedMethods:
   - GET
   - OPTIONS
