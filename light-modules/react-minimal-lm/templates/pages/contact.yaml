@@ -1,5 +1,6 @@
 title: 'React: Contact'
-url: https://master--try-cloud-page-headless-demo.netlify.app
+url: http://localhost:3000
+
 dialog: spa-lm:pages/basic
 
 renderType: spa
