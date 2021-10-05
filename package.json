@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@magnolia/react-editor": "^1.1.0-beta2",
+    "@babel/parser": "^7.15.7",
     "current-git-branch": "^1.1.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
@@ -13,7 +14,7 @@
   "scripts": {
     "get-env": "./get-env.js",
     "get-env-netlify": "./get-env-netlify.js",
-    "start": "NODE_ENV=production && npm run get-env && env-cmd -f .config-env env-cmd -f .env react-scripts start",
+    "start": "NODE_ENV=development && npm run get-env && env-cmd -f .config-env env-cmd -f .env react-scripts start",
     "start-old": "env-cmd -f .env.local react-scripts start",
     "build:mgnl": "npm run clean && env-cmd -f .env.mgnl react-scripts build",
     "build:netlify": "npm run clean && npm run get-env-netlify && CI=false && env-cmd -f .config-env env-cmd -f .env react-scripts build",

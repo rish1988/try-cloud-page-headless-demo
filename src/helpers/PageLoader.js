@@ -43,16 +43,16 @@ class PageLoader extends React.Component {
     console.log('templateId:', templateId);
 
     let templateJson = null;
-    if (EditorContextHelper.inEditor()) {
-      const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + '/' + templateId);
+    // if (EditorContextHelper.inEditor()) {
+      const templateResponse = await fetch(apiBase + process.env.REACT_APP_MGNL_API_TEMPLATES + pagePath);
       templateJson = await templateResponse.json();
       console.log('definition:', templateJson);
-    }
+    // }
 
     this.setState({
       init: true,
       content: pageJson,
-      templateDefinitions: templateJson,
+      templateAnnotations: templateJson,
       pathname: window.location.pathname,
     });
   };
@@ -96,11 +96,11 @@ class PageLoader extends React.Component {
       //console.log("n:" + process.env.NODE_ENV)
 
       return (
-        <EditablePage
-          templateDefinitions={this.state.templateDefinitions || {}}
-          content={this.state.content}
-          config={config}
-        ></EditablePage>
+          <EditablePage
+              templateAnnotations={this.state.templateAnnotations || {}}
+              content={this.state.content}
+              config={config}
+          />
       );
     } else {
       return <p>NO PAGE.</p>;
